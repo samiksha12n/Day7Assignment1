@@ -10,7 +10,7 @@ namespace Day7Assignment1UserInput
     internal class Program
     {
         static void Main(string[] args)
-        {   
+        {  
             try
             {
                 string path = "D:\\";
@@ -45,13 +45,13 @@ namespace Day7Assignment1UserInput
                 string fpath = path + fName;
                 if (!File.Exists(fpath))
                 {
-                    
-                    Console.WriteLine($"File {fName} already exists");
+                    File.Delete(fpath);
+                    Console.WriteLine($"File {fName} is Deleted");
                 }
                 else
                 {    
-                    File.Create(fpath);
-                    Console.WriteLine($"This file {fName} creation success");
+                    
+                    Console.WriteLine($"This file {fName} does not exists");
                 }
             }
             catch (Exception ex)
@@ -64,6 +64,7 @@ namespace Day7Assignment1UserInput
                 Console.ReadKey();
             }
 
+            // Reading From File
             StreamReader sr;
             try
             {
@@ -84,6 +85,8 @@ namespace Day7Assignment1UserInput
             {
                 Console.ReadKey();
             }
+
+            //Appending File
             string fappend = "D://New Folder/file.txt";
             using (StreamWriter sw = File.AppendText(fappend))
             {
